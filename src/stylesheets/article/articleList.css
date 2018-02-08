@@ -1,0 +1,231 @@
+#main{
+    padding-right: 300px;
+}
+#mainLeft{
+    padding: 25px 20px 0;
+}
+#mainLeft .title{
+    margin-bottom: 21px;
+}
+#filter{
+    padding: 10px 15px 0 15px;
+    min-width: 590px;
+    background-color: #f4f5f7;
+    border-radius: 5px;
+    font-size: 14px;
+}
+#filter dl{
+    position: relative;
+    padding: 0 0 5px 50px;
+}
+#filter dl:last-child{
+    margin: 0;
+}
+#filter dl label{
+    position: absolute;
+    left: 0;
+    display: block;
+    width: 50px;
+    line-height: 30px;
+    color: #999;
+}
+#filter dl ul{
+    float: left;
+}
+#filter dl ul li{
+    float: left;
+    margin: 0 5px 5px 0;
+    padding: 0 6px;
+    line-height: 28px;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    color: #333;
+    cursor: pointer;
+}
+#filter dl ul li:hover{
+    border-color: #3498db;
+    color: #3498db;
+}
+#filter dl ul li.current{
+    background-color: #3498db;
+    border-color: #3498db;
+    color: #fff;
+}
+
+#articleList{
+    margin-top: 19px;
+    padding-top: 13px;
+    border-top: 1px dashed #dfdfdf;
+}
+#articleList ul li{
+    margin-bottom: 20px;
+    min-width: 620px;
+}
+#articleList ul li .info{
+    margin-bottom: 6px;
+}
+#articleList ul li .info .headimg{
+    position: absolute;
+    margin-right: 10px;
+}
+#articleList ul li .info .headimg img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+#articleList ul li .info .info-detail{
+    position: relative;
+    padding-left: 70px;
+}
+#articleList ul li .info .info-detail .first-detail{
+    margin-bottom: 6px;
+    min-width: 550px;
+    height: 22px;
+    line-height: 22px;
+    overflow: hidden;
+}
+#articleList ul li .info .info-detail a:hover{
+    text-decoration: underline;
+    color: #3498db;
+}
+#articleList ul li .info .info-detail .username{
+    position: relative;
+    display: inline-block;
+    padding-right: 11px;
+    font-size: 14px;
+    color: #3498db;
+}
+#articleList ul li .info .info-detail .username:after{
+    content: "";
+    position: absolute;
+    right: 5px;
+    top: 6px;
+    width: 1px;
+    height: 11px;
+    background-color: #d5ccd5;
+}
+#articleList ul li .info .info-detail .article-title{
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+}
+#articleList ul li .info .info-detail .last-detail{
+    padding-left: 8px;
+    min-width: 542px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #f4f5f7;
+}
+#articleList ul li .info .info-detail .last-detail span{
+    float: left;
+    display: inline-block;
+    margin-right: 30px;
+    font-size: 14px;
+    color: #ababab;
+}
+#articleList ul li .info .info-detail .last-detail a{
+    color: inherit;
+}
+#articleList ul li .info .info-detail .last-detail a:hover{
+    text-decoration: underline;
+    color: #3498db;
+}
+#articleList ul li p{
+    line-height: 24px;
+    word-break: break-all;
+    font-size: 14px;
+    color: #999;
+}
+
+#page{
+    margin: 70px 0 25px 0;
+    height: 32px;
+    text-align: center;
+    border-radius: 3px;
+}
+#page>a{
+    display: inline-block;
+    padding: 0 20px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px;
+    color: #333;
+}
+#firstPage{
+    border: 1px solid #ddd;
+    border-right: 0;
+    border-radius: 3px 0 0 3px;
+}
+#prevPage{
+    border: 1px solid #ddd;
+    border-right: 0;
+}
+#lastPage{
+    border: 1px solid #ddd;
+    border-left: 0;
+    border-radius: 0 3px 3px 0;
+}
+#nextPage{
+    border: 1px solid #ddd;
+    border-left: 0;
+}
+#page>span{
+    display: inline-block;
+    padding: 5px 10px;
+    height: 22px;
+    line-height: 22px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+#page>span>span{
+    margin-right: 4px;
+    vertical-align: middle;
+}
+#page span input{
+    width: 28px;
+    height: 18px;
+    line-height: 18px;
+    border: 1px solid #ddd;
+}
+#pages{
+    display: inline-block;
+    text-align: left;
+}
+#pages li{
+    float: left;
+    display: block;
+    width: 49px;
+    height: 34px;
+    border-right:0;
+    background-color: #ddd;
+}
+#pages li a{
+    display: inline-block;
+    margin-left:1px;
+    width: 48px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    color: #333;
+}
+#pages li.current{
+    background-color: #3498db;
+}
+#pages li.current a{
+    background-color: #3498db;
+    border-color: #3498db;
+    color: #fff;
+}
+#pages li.current+li{
+    background-color: #3498db;
+}
+#page a:hover{
+    background-color: #eee;
+    text-decoration: none;
+    color: #3498db;
+}

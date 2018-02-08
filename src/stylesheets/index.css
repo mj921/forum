@@ -1,0 +1,293 @@
+body{
+	background-color: #fafafa;
+}
+.title{
+	position: relative;
+	text-indent: 10px;
+	font-weight: bold;
+	font-size: 18px;
+	height: 20px;
+	line-height: 20px;
+	color: #333;
+}
+.title:before{
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 5px;
+	height: 20px;
+	background-color: #3498db;
+}
+.title:after{
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 31px;
+	display: block;
+	width: 100%;
+	height: 1px;
+	background-color: #ececec;
+}
+#banner{
+	margin: 20px auto;
+	width: 1220px;
+	height: 295px;
+	background-color: #fff;
+}
+#classification{
+	float: left;
+	margin-right: 20px;
+	padding: 20px 15px;
+	height: 255px;
+	width: 300px;
+}
+#classification .title{
+	margin-bottom: 21px;
+}
+#classification a{
+	display: block;
+	float: left;
+	margin: 0 5px 10px;
+	width: 90px;
+	height: 32px;
+	background-color: #f4f5f7;
+	text-align: center;
+	line-height: 32px;
+	font-size: 14px;
+	color: #373a3c;
+}
+#classification a:hover{
+	background-color: #5cb85c;
+	font-weight: 700;
+	color: #fff;
+}
+#bannerList{
+	position: relative;
+	width: 870px;
+	height: 255px;
+	overflow: hidden;
+}
+#banner ul{
+	width: 8700px;
+	height: 255px;
+}
+#banner ul li{
+	display: inline-block;
+	width: 870px;
+	height: 255px;
+}
+#banner ul li a{
+	display: block;
+	height: 255px;
+}
+#banner ul li a img{
+	width: 870px;
+	height: 255px;
+}
+#bannerNumList{
+	position: absolute;
+	top: 232px;
+	width: 100%;
+	text-align: center;
+}
+#bannerNumList div{
+	display: inline-block;
+	padding: 2px 4px;
+	height: 10px;
+	background-color: rgba(0,0,0,0.3);
+	border-radius: 7px;
+}
+#bannerNumList div dl{
+	display: inline-block;
+	margin: 0 4px;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: rgba(255,255,255,0.7);
+}
+#bannerNumList div dl.current{
+	background-color: #5cb85c;
+}
+#dynamic{
+	padding: 13px 0;
+	height: 14px;
+	line-height: 14px;
+}
+#dynamic i{
+	float: left;
+	width: 25px;
+}
+#dynamic i:before{
+	content: "\f0a3";
+	color: #ccc;
+}
+#dynamic label{
+	float: left;
+	width: 75px;
+	font-size: 14px;
+	color: #333;
+}
+#dynamic div{
+	font-size: 14px;
+	color: #666;
+}
+#dynamic div dl a{
+	color: #3498db;
+}
+#dynamic div dl a:hover{
+	text-decoration: underline;
+}
+
+#main{
+	margin: 0 auto;
+	width: 1220px;
+	background-color: #fff;
+}
+#mainLeft{
+	float: left;
+	padding: 20px 15px;
+	width: 300px;
+}
+#newArticle{
+	margin-bottom: 40px;
+}
+#newArticle .title,#worthCollecting .title{
+	margin-bottom: 9px;
+}
+#newArticle ul,#worthCollecting ul{
+	padding-top: 1px;
+	counter-reset: num;
+}
+#newArticle ul li,#worthCollecting ul li{
+	margin: 14px 0;
+	width: 300px;
+	height: 22px;
+	line-height: 22px;
+	font-size: 16px;
+	overflow: hidden;
+}
+#newArticle ul li a,#worthCollecting ul li a{
+	color: #333;
+}
+#newArticle ul li a:hover,#worthCollecting ul li a:hover{
+	color: #3498db;
+	text-decoration: underline;
+}
+#newArticle ul li a:before,#worthCollecting ul li a:before{
+	float: left;
+	margin: 2px 7px 0 0;
+	content: counter(num);
+	counter-increment: num;
+	width: 16px;
+	height: 16px;
+	text-align: center;
+	line-height: 16px;
+	border: 1px solid #aab2bd;
+	border-radius: 50%;
+	color: #aab2bd;
+	font-size: 12px;
+}
+#newArticle ul li a.top:before{
+	border-color: #3498db;
+	color: #3498db;
+}
+#worthCollecting ul li a.top:before{
+	border-color: #f60;
+	color: #f60;
+}
+
+#mainCenter{
+	float: left;
+	padding: 20px;
+	width: 520px;
+}
+#recommend .title{
+	margin-bottom: 21px;
+}
+#recommend ul li{
+	margin-bottom: 20px;
+}
+#recommend ul li .info{
+	margin-bottom: 6px;
+}
+#recommend ul li .info .headimg{
+	float: left;
+	margin-right: 10px;
+}
+#recommend ul li .info .headimg img{
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+}
+#recommend ul li .info .info-detail{
+	float: left;
+}
+#recommend ul li .info .info-detail .first-detail{
+	margin-bottom: 6px;
+	width: 450px;
+	height: 22px;
+	line-height: 22px;
+	overflow: hidden;
+}
+#recommend ul li .info .info-detail a:hover{
+	text-decoration: underline;
+	color: #3498db;
+}
+#recommend ul li .info .info-detail .username{
+	position: relative;
+	display: inline-block;
+	padding-right: 11px;
+	font-size: 14px;
+	color: #3498db;
+}
+#recommend ul li .info .info-detail .username:after{
+	content: "";
+	position: absolute;
+	right: 5px;
+	top: 6px;
+	width: 1px;
+	height: 11px;
+	background-color: #d5ccd5;
+}
+#recommend ul li .info .info-detail .article-title{
+	font-size: 18px;
+	font-weight: 700;
+	color: #333;
+}
+#recommend ul li .info .info-detail .last-detail{
+	padding-left: 8px;
+	width: 442px;
+	height: 30px;
+	line-height: 30px;
+	background-color: #f4f5f7;
+}
+#recommend ul li .info .info-detail .last-detail span{
+	float: left;
+	display: inline-block;
+	margin-right: 30px;
+	font-size: 14px;
+	color: #ababab;
+}
+#recommend ul li .info .info-detail .last-detail a{
+	color: inherit;
+}
+#recommend ul li .info .info-detail .last-detail a:hover{
+	text-decoration: underline;
+	color: #3498db;
+}
+#recommend ul li p{
+	line-height: 24px;
+	word-break: break-all;
+	font-size: 14px;
+	color: #999;
+}
+
+#mainRight{
+	float: left;
+	padding: 20px 15px;
+	width: 300px;	
+}
+#tool{
+	margin-bottom: 40px;
+}

@@ -1,0 +1,1 @@
+var mainLeft=new Vue({el:"#mainLeft",data:{isSmall:!1,textShow:!0,sto:null},methods:{back:function(){this.isSmall?(this.$el.parentNode.style.paddingLeft="200px",this.sto=setTimeout(function(){mainLeft.textShow=!0},200)):(clearTimeout(this.sto),this.$el.parentNode.style.paddingLeft="70px",this.textShow=!1),this.isSmall=!this.isSmall}}});

@@ -1,0 +1,13 @@
+<!-- bigMenu.html -->
+<div class="user">
+    <img src="<%=session.user.headimg%>" alt="<%=session.user.username%>">
+    <p><%=session.user.username%></p>
+</div>
+<div class="menu">
+    <a class="article W3CfunsIcons-font <%=pageId == 'article' ? 'current' : ''%>">{{textShow ? "笔记" : ""}}</a>
+    <a class="collection W3CfunsIcons-font <%=pageId == 'collection' ? 'current' : ''%>">{{textShow ? "收藏" : ""}}</a>
+    <a class="news W3CfunsIcons-font <%=pageId == 'news' ? 'current' : ''%>">{{textShow ? "消息" : ""}}</a>
+    <a class="letter W3CfunsIcons-font <%=pageId == 'letter' ? 'current' : ''%>">{{textShow ? "私信" : ""}}</a>
+    <a class="set W3CfunsIcons-font <%=pageId == 'set' ? 'current' : ''%>">{{textShow ? "设置" : ""}}</a>
+    <a class="recycle W3CfunsIcons-font <%=pageId == 'recycle' ? 'current' : ''%>">{{textShow ? "回收站" : ""}}</a>
+</div>

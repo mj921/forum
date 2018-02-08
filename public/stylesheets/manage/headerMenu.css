@@ -1,0 +1,529 @@
+/*myheader.css*/
+#header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 20px;
+    min-width: 750px;
+    width: 100%;
+    height: 51px;
+    background-color:#3e4147;
+    border-bottom: 1px solid #000;
+    box-sizing: border-box;
+    z-index: 9;
+}
+#nav{
+    float: left;
+    height: 50px;
+    line-height: 50px;
+}
+#nav dl{
+    float: left;
+    padding: 0 15px;
+}
+#nav a{
+    position: relative;
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    color: #cbcbcb;
+}
+#nav a.logo:before{
+    content: "";
+    display: inline-block;
+    margin: 17px 5px 0 0;
+    width: 25px;
+    height: 15px;
+    vertical-align: top;
+    background-image: url(../../images/myheader/logo.png);
+}
+#nav a.house:before{
+    content: "\f019";
+    display: inline-block;
+    margin: 14px 5px 0 0;
+    vertical-align: top;
+    font-size: 20px;
+}
+#nav a.manage:before{
+    content: "\e908";
+    display: inline-block;
+    margin: 14px 5px 0 0;
+    vertical-align: top;
+    font-size: 20px;
+}
+#nav a:after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 5px;
+    margin-left: -10px;
+    width: 20px;
+    height: 3px;
+    background-color: #cbcbcb;
+    transition: all 0.3s linear;
+}
+#nav a.logo:hover:before,#nav a.logo.current:before{
+    background-position: 0 -20px;
+}
+#nav a:hover:after,#nav a.current:after{
+    margin-left: 0;
+    left: 0;
+    width: 100%;
+    background-color: #6bc30d;
+}
+#nav a:hover,#nav a.current{
+    color: #6bc30d;
+}
+
+#user>a:hover{
+    color: #6bc30d;
+}
+#user{
+    float: right;
+}
+#search{
+    float: left;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    background-color: #42464c;
+    overflow: hidden;
+    transition: width 0.2s linear;
+    -webkit-transition: width 0.2s linear;
+}
+#search:hover{
+    width: 200px;
+    background-color: #333;
+}
+#searchBtn:before{
+    content: "\e003";
+}
+#user input{
+    float: left;
+    height: 50px;
+    width: 150px;
+    line-height: 50px;
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    color: #fff;
+}
+#user dl{
+    float: left;
+    margin-left: 1px;
+    width: 50px;
+    text-align: center;
+    background-color: #42464c;
+}
+#user dl:hover{
+    background-color: #333;
+}
+#user>a,#user dl>a,#search a{
+    float: left;
+    display: block;
+    width: 44px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 14px;
+    color: #9d9d9d;
+}
+#search a{
+    width: 50px;
+}
+#user>a{
+    color: #cbcbcb;
+}
+#user dl>a{
+    width: 50px;
+}
+#user dl>img{
+    margin: 10px;
+    width: 30px;
+    height: 30px;
+}
+#user dl.headimg{
+    position: relative;
+}
+#user dl.headimg .userinfo{
+    position: absolute;
+    right: 0;
+    top: 60px;
+    display: none;
+    padding: 1px;
+    width: 300px;
+    background-color: #fff;
+    border: 1px solid #c4c4c4;
+    z-index: 999;
+}
+#user dl.headimg:hover .userinfo{
+    display: block;
+}
+#user dl.headimg .userinfo>i{
+    position: absolute;
+    top: -11px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border-bottom: 11px solid #c4c4c4;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+}
+#user dl.headimg .userinfo>i:before{
+    content: "";
+    display: block;
+    margin-top: 1px;
+    margin-left: -10px;
+    border-bottom: 10px solid #fff;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+#user dl.headimg .userinfo .info{
+    padding: 40px 0 12px;
+    text-align: center;
+    background-image: url(../../images/header/banner_mini.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+#user dl.headimg .userinfo .info img{
+    margin-bottom: 15px;
+    width: 64px;
+    height: 64px;
+    border: 3px solid rgba(255,255,255,.25);
+    border-radius: 50%;
+}
+#user dl.headimg .userinfo .info a:first-child{
+    display: block;
+}
+#user dl.headimg .userinfo .info .username{
+    display: inline-block;
+    margin-bottom: 10px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 24px;
+    color: #333;
+}
+#user dl.headimg .userinfo .info .username i,#user dl.headimg .userinfo .info .username:hover i{
+    display: inline-block;
+    margin: 5px 0 5px 15px;
+    padding: 0 5px;
+    height: 14px;
+    line-height: 14px;
+    vertical-align: top;
+    background-color: #ffb400;
+    border-radius: 7px;
+    font-size: 12px;
+    color: #fff;
+}
+#user dl.headimg .userinfo .info .username:hover{
+    color: #3498db;
+}
+#user dl.headimg .userinfo .info .edit{
+    line-height: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+}
+#user dl.headimg .userinfo .progress{
+    position: relative;
+    margin: 0 auto;
+    height: 5px;
+    width: 294px;
+    background-color: #f5f5f5;
+}
+#user dl.headimg .userinfo .progress:before{
+    content: "";
+    position: absolute;
+    left: -3px;
+    width: 3px;
+    height: 5px;
+    background-color: #3498db;
+    border-radius: 3px 0 0 3px;
+}
+#user dl.headimg .userinfo .progress:after{
+    content: "";
+    position: absolute;
+    right: -3px;
+    width: 3px;
+    height: 5px;
+    background-color: #f5f5f5;
+    border-radius: 0 3px 3px 0;
+}
+#user dl.headimg .userinfo .progress div{
+    position: absolute;
+    top: -43px;
+    display: none;
+    margin-left: 91px;
+    padding: 4px 0;
+    width: 112px;
+    line-height: 15px;
+    background-color: #1a1a1a;
+    border-radius: 3px;
+    font-style: normal;
+    font-size: 12px;
+    color: #fff;
+}
+#user dl.headimg .userinfo .progress:hover div{
+    display: block;
+}
+#user dl.headimg .userinfo .progress div span{
+    display: block;
+}
+#user dl.headimg .userinfo .progress div:before{
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 38px;
+    margin-left: -5px;
+    width: 10px;
+    height: 5px;
+    background-image: url(../../images/article/tip-title.png);
+}
+#user dl.headimg .userinfo .my{
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+#user dl.headimg .userinfo .my a{
+    float: left;
+    padding: 6px 0;
+    width: 70px;
+    line-height: 18px;
+    color: #666;
+    font-size: 12px;
+}
+#user dl.headimg .userinfo .my a.house:before{
+    content: "\f019";
+    display: block;
+    line-height: 32px;
+    font-size: 32px;
+}
+#user dl.headimg .userinfo .my a.manage:before{
+    content: "\e908";
+    display: block;
+    line-height: 32px;
+    font-size: 25px;
+}
+#user dl.headimg .userinfo .my a.article:before{
+    content: "\e906";
+    display: block;
+    line-height: 32px;
+    font-size: 28px;
+}
+#user dl.headimg .userinfo .my a.collection:before{
+    content: "\f007";
+    display: block;
+    line-height: 32px;
+    font-size: 30px;
+}
+#user dl.headimg .userinfo .my a:hover{
+    background-color: #3498db;
+    color: #fff;
+}
+#user dl.headimg .userinfo .set{
+    padding: 0 10px;
+    line-height: 29px;
+    text-align: left;
+    background-color: #f2f2f2;
+}
+#user dl.headimg .userinfo .set a{
+    font-size: 12px;
+    color: #333;
+}
+#user dl.headimg .userinfo .set a:first-child:before{
+    content: "\f0c9";
+    display: inline-block;
+    margin: 9px 2px 0 0;
+    vertical-align: top;
+    color: #666;
+}
+#user dl.headimg .userinfo .set a:last-child{
+    float: right;
+}
+#user dl.headimg .userinfo .set a:last-child:before{
+    content: "\e907";
+    display: inline-block;
+    margin: 9px 2px 0 0;
+    vertical-align: top;
+    color: #666;
+}
+#user dl.headimg .userinfo .set a:hover,#user dl.headimg .userinfo .set a:hover:before{
+    color: #3498db;
+}
+
+
+
+#main{
+    position: absolute;
+    top: 0;
+    padding-left: 200px;
+    height: 100%;
+    width: 100%;
+    min-width: 1200px;
+    padding-top: 51px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    transition: all 0.2s linear;
+}
+#mainLeft{
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 51px 0 48px 0;
+    width: 200px;
+    height: 100%;
+    background-color: #32323a;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    transition: all 0.2s linear;
+}
+#mainLeft.small{
+    width: 70px;
+}
+#mainRight{
+    position: relative;
+    margin: 0;
+    height: 100%;
+}
+#back{
+    padding-right: 21px;
+    height: 47px;
+    background-color: #28282e;
+    border-top: 1px solid #444;
+    font-size: 36px;
+    color: #aaa;
+    cursor: pointer;
+}
+#back:hover{
+    color: #fff;
+}
+#back:after{
+    float: right;
+    content: "\f106";
+    display: block;
+    height: 46px;
+    line-height: 46px;
+}
+#back.reset:after{
+    content: "\f107";
+}
+
+
+#menu{
+    height: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border-bottom: 1px solid #000;
+}
+#menu .user{
+    padding: 20px 0 27px 0;
+    text-align: center;
+}
+#menu.small-menu .user{
+    padding: 20px 0 64px;
+}
+#menu .user img{
+    width: 80px;
+    height: 80px;
+    border: 4px solid #555;
+    border-radius: 50%;
+    transition: all 0.2s linear;
+}
+#menu.small-menu .user img{
+    width: 50px;
+    height: 50px;
+    border: 2px solid #555;
+    border-radius: 50%;
+}
+#menu .user p{
+    line-height: 30px;
+    font-size: 18px;
+    color: #fff;
+}
+#menu.small-menu .user p{
+    display: none;
+}
+#menu .menu a{
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    border-left: 5px solid #32323a;
+    font-size: 14px;
+    color: #95a0aa;
+    transition: all 0.2s linear;
+}
+#menu.small-menu .menu a{
+    height: 50px;
+    line-height: 50px;
+}
+#menu .menu a:before{
+    content: "";
+    float: left;
+    display: block;
+    width: 60px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 16px;
+}
+#menu .menu a:hover{
+    background-color: #28282e;
+    border-color: #5aa10a;
+    color: #fff;
+}
+#menu .menu a.current{
+    background-color: #6bc30d;
+    border-color: #5aa10a;
+    color: #fff;
+}
+#mainLeft a.article:before{
+    content: "\f017";
+}
+#mainLeft a.collection:before{
+    content: "\f007";
+}
+#mainLeft a.news:before{
+    content: "\f0a2";
+}
+#mainLeft a.letter:before{
+    content: "\f004";
+}
+#mainLeft a.set:before{
+    content: "\f085";
+}
+#mainLeft a.recycle:before{
+    content: "\f018";
+}
+
+.content-title{
+    padding: 20px 0 30px 20px;
+    font-size: 36px;
+    line-height: 38px;
+    color: #cacaca;
+}
+.tabs{
+    padding-left: 3px;
+}
+.tabs:after{
+    content: "";
+    clear: both;
+}
+.tabs a{
+    float: left;
+    display: block;
+    margin-left: 17px;
+    padding: 0 10px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border: 1px solid #fafafa;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+}
+.tabs a:hover{
+    background-color: #eee;
+    color: #3498db;
+}
+.tabs a.current{
+    background-color: #5cb85c;
+    color: #fff;
+}

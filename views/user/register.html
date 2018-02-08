@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>注册</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/user/register.css">
+</head>
+<body>
+	<%- include ../include/header.html %>
+	<div id="banner"></div>
+	<div id="main">
+		<dt>
+			<span>加入我们</span>
+			<i>已有账号？<a href="/user/login.html">立即登录</a></i>
+		</dt>
+		<form id="registerForm" action="/user/doRegister.html" method="post">
+			<dl v-bind:class="{'input-focus':usernameClass}">
+				<label for="username" class="W3CfunsIcons-font">我的账号</label><input type="text" name="username" id="username" v-model="username"><span v-bind:class="{'show':isUsername}">{{usernameInfo}}</span>
+			</dl>
+			<dl v-bind:class="{'input-focus':passwordClass}">
+				<label for="password" class="W3CfunsIcons-font">登录密码</label><input type="password" name="password" id="password" v-model="password"><span v-bind:class="{'show':isPassword}">{{passwordInfo}}</span>
+			</dl>
+			<dl v-bind:class="{'input-focus':confirmPwdClass}">
+				<label for="confirmPwd" class="W3CfunsIcons-font">确认密码</label><input type="password" name="confirmPwd" id="confirmPwd" v-model="confirmPwd"><span v-bind:class="{'show':isConfirmPwd}">{{confirmPwdInfo}}</span>
+			</dl>
+			<a href="javascript:void(0)" id="registerBtn">立即注册</a>
+		</form>
+	</div>
+	<!-- <script type="text/javascript" src="/javascripts/vue.js"></script> -->
+	<script type="text/javascript" src="/javascripts/user/register.js"></script>
+</body>
+</html>

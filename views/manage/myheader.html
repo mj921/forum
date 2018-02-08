@@ -1,0 +1,52 @@
+<div id="header">
+    <div id="nav">
+        <dl>
+            <a class="logo" href="/">首页</a>
+        </dl>
+        <dl>
+            <a class="house W3CfunsIcons-font" href="/">小屋</a>
+        </dl>
+        <dl>
+            <a class="manage W3CfunsIcons-font current" href="/article/articleList.html">后院</a>
+        </dl>
+    </div>
+    <div id="user">
+        <div id="search">
+            <a href="javascript:void(0)" id="searchBtn" class="glyphicons-font"></a>
+            <input type="text">
+        </div>
+        <% if(session.user){ %>
+        <dl class="headimg">
+            <img src="<%=session.user.headimg%>" alt="<%=session.user.name%>">
+            <div class="userinfo">
+                <i></i>
+                <div class="info">
+                    <a href=""><img src="<%=session.user.headimg%>" alt="<%=session.user.username%>"></a>
+                    <a href="" class="username"><%=session.user.username%><i>Lv.<%=session.user.level%></i></a>
+                    <div class="edit">[点击编辑个性签名]</div>
+                </div>
+                <div class="progress">
+                    <em width="0%"></em>
+                    <div>
+                        <span>当前经验值：<%=session.user.experience%></span>
+                        <span>距离升级还需：50</span>
+                    </div>
+                </div>
+                <div class="my clear">
+                    <a href="" class="W3CfunsIcons-font house">我的小屋</a>
+                    <a href="" class="W3CfunsIcons-font manage">我的后院</a>
+                    <a href="" class="W3CfunsIcons-font article">我的笔记</a>
+                    <a href="" class="W3CfunsIcons-font collection">我的收藏</a>
+                </div>
+                <div class="set">
+                    <a href="" class="W3CfunsIcons-font">账号设置</a>
+                    <a href="/user/logout.html" class="W3CfunsIcons-font">退出</a>
+                </div>
+            </div>
+        </dl>
+        <% }else{ %>
+            <a href="/user/login.html">登录</a>
+            <a href="/user/register.html">注册</a>
+        <% } %>
+    </div>
+</div>

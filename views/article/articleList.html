@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>笔记</title>
+    <%-include ../include/baseCss.html%>
+    <link rel="stylesheet" href="/stylesheets/article/articleList.css">
+</head>
+<body>
+    <%-include ../include/header.html%>
+    <input type="hidden" id="classificationid" value="<%=classificationid%>">
+    <input type="hidden" id="typeid" value="<%=typeid%>">
+    <input type="hidden" id="sortNum" value="<%=sortNum%>">
+    <div id="main">
+        <div id="mainLeft">
+            <dt class="title">笔记</dt>
+            <div id="filter">
+                <dl class="clear">
+                    <label>分类：</label>
+                    <ul class="clear">
+                        <li <% if(classificationid == 0){%>class="current"<%}%> @click="liClick($event,'classificationid')">全部</li>
+                        <% if(classifications){ %>
+                        <%      for(var i = 0;i < classifications.length;i++){ %>
+                            <li <% if(classificationid == i + 1){%>class="current"<%}%> @click="liClick($event,'classificationid')"><%=classifications[i].name%></li>
+                        <% } %>
+                        <% } %>
+                    </ul>
+                </dl>
+                <dl class="clear">
+                    <label>类型：</label>
+                    <ul class="clear">
+                        <li <% if(typeid == 0){%>class="current"<%}%> @click="liClick($event,'typeid')">全部</li>
+                        <% if(types){ %>
+                        <%      for(var i = 0;i < types.length;i++){ %>
+                            <li <% if(typeid == i + 1){%>class="current"<%}%> @click="liClick($event,'typeid')"><%=types[i].name%></li>
+                        <% } %>
+                        <% } %>
+                    </ul>
+                </dl>
+                <!-- <dl class="clear">
+                    <label>属性：</label>
+                    <ul class="clear">
+                        <li class="current">全部</li>
+                        <li>原创</li>
+                        <li>转载</li>
+                    </ul>
+                </dl> -->
+                <dl class="clear">
+                    <label>排序：</label>
+                    <ul class="clear">
+                        <li <% if(sortNum == 0){%>class="current"<%}%> @click="liClick($event,'sortNum')">最新发布</li>
+                        <li <% if(sortNum == 1){%>class="current"<%}%> @click="liClick($event,'sortNum')">浏览最多</li>
+                        <li <% if(sortNum == 2){%>class="current"<%}%> @click="liClick($event,'sortNum')">评论最多</li>
+                        <li <% if(sortNum == 3){%>class="current"<%}%> @click="liClick($event,'sortNum')">点赞最多</li>
+                        <li <% if(sortNum == 4){%>class="current"<%}%> @click="liClick($event,'sortNum')">收藏最多</li>
+                    </ul>
+                </dl>
+            </div>
+            <div id="articleList">
+                <ul v-for="item in items">
+                    <li>
+                        <div class="info clear"> 
+                            <a href="" class="headimg"> 
+                                <img :src="item.headimg" :alt="item.username"> 
+                            </a> 
+                            <div class="info-detail"> 
+                                <div class="first-detail"> 
+                                    <a href="" class="username">{{item.username}}</a> 
+                                    <a :href="'/article/detail.html?id=' + item.id" class="article-title">{{item.title}}</a> 
+                                </div> 
+                                <div class="last-detail clear"> 
+                                    <span>浏览：{{item.pageviews}}</span> 
+                                    <span>回复：{{item.reply}}</span> 
+                                    <span>分类：<a :href="'/article/articleList.html?classificationid=' + item.classificationid">{{item.classification}}</a></span> 
+                                </div> 
+                            </div> 
+                        </div> 
+                        <p>{{item.content}}</p> 
+                    </li>
+                </ul>
+                <div id="page" class="clear" v-show="pageShow">
+                    <a href="javascript:void(0)" id="firstPage" @click="loadArticleList(1)">首页</a><a href="javascript:void(0)" id="prevPage" @click="prevPage">上一页</a><div id="pages" class="clear" v-for="item in nums"><li :class="item.current"><a href="javascript:void(0)" @click="loadArticleList(this.innerText)">{{item.index}}</a></li></div><span>
+                        <input type="text" id="currentPage" :value="page.currentPage" @keyup.enter="loadArticleList(this.value)"> / <span id="pagesNum">{{page.pages}}</span>页
+                    </span><a href="javascript:void(0)" id="nextPage" @click="nextPage">下一页</a><a href="javascript:void(0)" id="lastPage"@click="loadArticleList(page.pages)">尾页</a>
+                </div>
+            </div>
+        </div>
+        <div id="mainRight"></div>
+    </div>
+    <script type="text/javascript" src="/javascripts/mjajax.js"></script>
+    <script type="text/javascript" src="/javascripts/vue.js"></script>
+    <script type="text/javascript" src="/javascripts/article/articleList.js"></script>
+</body>
+</html>

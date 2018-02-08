@@ -1,0 +1,124 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        var canvas = document.createElement("canvas");
+        var ctx = canvas.getContext("2d");
+        var img = new Image();
+        img.src = "/images/header/logo.png";
+        img.onload = function(){
+            canvas.width = img.width;
+            canvas.height = img.height;
+            ctx.drawImage(img,0,0);
+            var ctxImg = ctx.getImageData(0,0,img.width,img.height);
+            console.log(ctxImg.data)
+            var tenToSixteen = function(num){
+                var arr = ["a","b","c","d","e","f"];
+                var ns = [];
+                var s = "";
+                while(num > 15){
+                    ns.push(num % 16);
+                    num = ~~(num / 16);
+                }
+                ns.push(num);
+                for(var i = ns.length - 1;i >= 0;i--){
+                    if(ns[i] < 10){
+                        s += ns[i];
+                    }else{
+                        s += arr[ns[i] - 10];
+                    }
+                }
+                return s;
+            }
+            var sixteenToTen = function(s){
+                var arr = {"a":10,"b":11,"c":12,"d":13,"e":14,"f":15};
+                var n = 0;
+                s += "";
+                var i = s.length - 1;
+                while(i >= 0){
+                    var sn = s.charAt(i);
+                    if(/^\d$/.test(sn)){
+                        n += Math.pow(16,s.length - 1 - i) * ~~s.charAt(i);
+                    }else{
+                        n += Math.pow(16,s.length - 1 - i) * arr[sn];
+                    }
+                    i--;
+                }
+                return n;
+            }
+            var createColors = function(){
+                var arr = [];
+                for(var i = 0;i < 10000;i++){
+                    arr.push("#" + tenToSixteen(ctxImg.data[i]));
+                }
+                return arr;
+            }
+            var colors = /*localStorage.getItem("colors").split(",") ||*/ createColors();
+            localStorage.setItem("colors",colors)
+            console.log(colors)
+            var c = 6;
+            var w = 13;
+            var divs = [];
+            var createDivs = function(){
+                divs = [];
+                for(var i = 0;i < colors.length;i++){
+                    var style = {backgroundColor:colors[i],width:"1px",height:"1px",float:"left"}
+                    divs.push(<div style={style}></div>)
+                    if(i % 300 === 299){
+                        divs.push(<br/>)
+                    }
+                }
+                ReactDOM.render(<div>{divs}</div>,document.getElementById("app"));
+            }
+            var resetColor = function(){
+                for(var i = 0;i < 1950;i += 1){
+                    if(i % 50 !== 49){
+                        var n1 = sixteenToTen(colors[i].substr(1,6));
+                        var n2 = sixteenToTen(colors[i + 1].substr(1,6));
+                        var n3 = sixteenToTen(colors[i + 50].substr(1,6));
+                        var n4 = sixteenToTen(colors[i + 51].substr(1,6));
+                        var p = ~~((n1 + n2 + n3 + n4) / 4);
+                        // if(Math.abs(n1 - p) > w){
+                        //     n1 = n1 - p > 0 ? n1 - c : (n1 - p < 0 ? n1 + c : n1);
+                        // }
+                        // if(Math.abs(n1 - p) > w){
+                        //     n2 = n2 - p > 0 ? n2 - c : (n2 - p < 0 ? n2 + c : n2);
+                        // }
+                        // if(Math.abs(n3 - p) > w){
+                        //     n3 = n3 - p > 0 ? n3 - c : (n3 - p < 0 ? n3 + c : n3);
+                        // }
+                        // if(Math.abs(n4 - p) > w){
+                        //     n4 = n4 - p > 0 ? n4 - c : (n4 - p < 0 ? n4 + c : n4);
+                        // }
+                        colors[i] = "#" + tenToSixteen(p);
+                        colors[i + 1] = "#" + tenToSixteen(p);
+                        colors[i + 50] = "#" + tenToSixteen(p);
+                        colors[i + 51] = "#" + tenToSixteen(p);
+                    }
+                }
+                createDivs();
+            }
+            var run = function(n){
+                var i = 0;
+                while(i < n){
+                    resetColor();
+                    i++
+                }
+            }
+            setTimeout(function(){run(10)},1000);
+            createDivs(); 
+        }
+            
+    </script>
+</body>
+</html> -->

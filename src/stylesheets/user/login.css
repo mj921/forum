@@ -1,0 +1,102 @@
+#banner{
+    margin-bottom: 36px;
+    height: 60px;
+    background-image: url(../../images/user/login/banner.png);
+    background-position: center;
+}
+#main{
+    margin: 0 auto;
+    width: 760px;
+}
+#main dt{
+    height: 36px;
+    line-height: 36px;
+    margin-bottom: 33px;
+}
+#main dt span{
+    font-size: 36px;
+    color: #63ad64;
+}
+#main dt i{
+    float: right;
+    font-style: normal;
+    font-size: 12px;
+}
+#main dt i a,#loginForm span a{
+    color: #1f8902;
+}
+#main dt i a:hover,#loginForm span a:hover{
+    text-decoration: underline;
+}
+#loginForm dl{
+    position: relative;
+    margin-bottom: 25px;
+    height: 34px;
+    line-height: 34px;
+    border: 1px solid #ededed;
+}
+#loginForm label{
+	float: left;
+	width: 114px;
+    border-right: 1px solid #ededed;
+    background-color: #fafafa;
+    font-size: 14px;
+    color: #999;
+}
+#loginForm dl label[for="username"]:before{
+    content: "\e90c";
+    display: inline-block;
+    margin: 0 10px;
+}
+#loginForm dl label[for="password"]:before{
+    content: "\e90a";
+    display: inline-block;
+    margin: 0 10px;
+}
+#loginForm input{
+    float: left;
+    margin: 0;
+    padding: 0 10px;
+    height: 100%;
+    width: 623px;
+    vertical-align: top;
+    border: 0;
+    color: #999;
+    outline: none;
+}
+#loginForm dl span{
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: none;
+    padding: 0 10px;
+    height: 100%;
+    background-color: #f9f2f4;
+    font-size: 12px;
+    color: #c7254e;
+}
+#loginForm dl span.show{
+    display: block;
+}
+#loginForm dl.input-focus{
+    border-bottom-color: #66afe9;
+}
+#loginBtn{
+    float: left;
+    display: block;
+    width: 228px;
+    height: 46px;
+    line-height: 46px;
+    text-align: center;
+    background-color: #5cb85c;
+    font-size: 18px;
+    color: #fff;
+}
+#loginForm .get-back{
+    float: right;
+    display: block;
+    margin-top: 26px;
+    line-height: 20px;
+    font-size: 12px;
+    color: #777;
+}

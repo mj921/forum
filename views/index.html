@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>论坛</title>
+    <%-include include/baseCss.html %>
+    <link rel="stylesheet" href="/stylesheets/index.css">
+</head>
+<body>
+    <%-include include/header.html %>
+    <div id="banner" class="clear">
+        <div id="classification">
+            <dt class="title">笔记分类</dt>
+            <div>
+                <%  if(classifications){ 
+                        for(var i = 0;i < classifications.length;i++){ %>
+                            <a href="/article/articleList.html?classificationid=<%=classifications[i].id%>"><%=classifications[i].name%></a>
+                <%      } %>
+                <%  } %>
+            </div>  
+        </div>
+        <div id="bannerRight">
+            <div id="bannerList">
+                <ul class="clear">
+                    <li><a href=""><img src="/images/index/banner3.jpg" alt="banner3"></a></li>
+                    <li><a href=""><img src="/images/index/banner1.jpg" alt="banner1"></a></li>
+                    <li><a href=""><img src="/images/index/banner2.jpg" alt="banner2"></a></li>
+                    <li><a href=""><img src="/images/index/banner3.jpg" alt="banner3"></a></li>
+                    <li><a href=""><img src="/images/index/banner1.jpg" alt="banner1"></a></li>
+                </ul>
+                <div id="bannerNumList">
+                    <div>
+                        <dl class="current"></dl><dl></dl><dl></dl>
+                    </div>
+                </div>
+            </div>
+            <div id="dynamic">
+                <i class="W3CfunsIcons-font"></i>
+                <label for="">前端动态：</label>
+                <div>
+                    <dl><a>第几个版</a> 拜读了 <a>抢黄金</a> 的笔记 <a>《卡价格发布机构》</a></dl>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="main" class="clear">
+        <div id="mainLeft">
+            <div id="newArticle">
+                <dt class="title">最新笔记</dt>
+                <ul>
+                    <%  if(topTenArticles){ %>
+                    <%      for(var i = 0;i < topTenArticles.length;i++){ %>
+                                <li><a href="/article/detail.html?id=<%=topTenArticles[i].id%>" title="<%=topTenArticles[i].title%>" <% if(topTenArticles[i].no < 3){ %>class="top"<% } %>><%=topTenArticles[i].title%></a></li>
+                    <%      } %>
+                    <%  } %>
+                </ul>
+            </div>
+            <div id="worthCollecting">
+                <dt class="title">值得收藏</dt>
+                <ul>
+                    <%  if(tenCollectionArticles){ %>
+                    <%      for(var i = 0;i < tenCollectionArticles.length;i++){ %>
+                                <li><a href="/article/detail.html?id=<%=tenCollectionArticles[i].id%>" title="<%=tenCollectionArticles[i].title%>" <% if(tenCollectionArticles[i].no < 3){ %>class="top"<% } %>><%=tenCollectionArticles[i].title%></a></li>
+                    <%      } %>
+                    <%  } %>
+                </ul>
+            </div>
+        </div>
+        <div id="mainCenter">
+            <div id="recommend">
+                <dt class="title">推荐笔记</dt>
+                <ul>
+                    <%  if(tenRecommendArticles){ %>
+                    <%      for(var i = 0;i < tenRecommendArticles.length;i++){ %>
+                                <li>
+                                    <div class="info clear">
+                                        <a href="" class="headimg">
+                                            <img src="<%=tenRecommendArticles[i].headimg%>" alt="">
+                                        </a>
+                                        <div class="info-detail">
+                                            <div class="first-detail"><a href="" class="username"><%=tenRecommendArticles[i].username%></a><a href="/article/detail.html?id=<%=tenRecommendArticles[i].id%>" class="article-title"><%=tenRecommendArticles[i].title%></a></div>
+                                            <div class="last-detail clear">
+                                                <span>浏览：<%=tenRecommendArticles[i].pageviews%></span>
+                                                <span>回复：<%=tenRecommendArticles[i].reply%></span>
+                                                <span>分类：<a href="/article/articleList.html?classificationid=<%=tenRecommendArticles[i].classificationid%>"><%=tenRecommendArticles[i].class%></a></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p><%=tenRecommendArticles[i].content%></p>
+                                </li>
+                    <%      } %>
+                    <%  } %>
+                </ul>
+            </div>
+        </div>
+        <div id="mainRight">
+            <div id="tool">
+                <dt class="title">工具库</dt>
+            </div>
+            <div id="topic">
+                <dt class="title">等你参与</dt>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+#banner{
+    margin-bottom: 36px;
+    height: 60px;
+    background-image: url(../../images/user/register/banner.png);
+    background-position: center;
+}
+#main{
+    margin: 0 auto;
+    width: 760px;
+}
+#main dt{
+    height: 36px;
+    line-height: 36px;
+    margin-bottom: 33px;
+}
+#main dt span{
+    font-size: 36px;
+    color: #3498db;
+}
+#main dt i{
+    float: right;
+    font-style: normal;
+    font-size: 12px;
+}
+#main dt i a,#registerForm span a{
+    color: #1f8902;
+}
+#main dt i a:hover,#registerForm span a:hover{
+    text-decoration: underline;
+}
+#registerForm dl{
+    position: relative;
+    margin-bottom: 25px;
+    height: 34px;
+    line-height: 34px;
+    border: 1px solid #ededed;
+}
+#registerForm dl.input-focus{
+    border-bottom-color: #66afe9;
+}
+#registerForm label{
+    float: left;
+    width: 114px;
+    border-right: 1px solid #ededed;
+    background-color: #fafafa;
+    font-size: 14px;
+    color: #999;
+}
+#registerForm dl label[for="username"]:before{
+    content: "\e90c";
+    display: inline-block;
+    margin: 0 10px;
+}
+#registerForm dl label[for="password"]:before,#registerForm dl label[for="confirmPwd"]:before{
+    content: "\e90a";
+    display: inline-block;
+    margin: 0 10px;
+}
+#registerForm input{
+    float: left;
+    margin: 0;
+    padding: 0 10px;
+    height: 100%;
+    width: 623px;
+    vertical-align: top;
+    border: 0;
+    color: #999;
+    outline: none;
+}
+#registerForm dl span{
+    position: absolute;
+    right: 0;
+    display: none;
+    padding: 0 10px;
+    height: 100%;
+    background-color: #f9f2f4;
+    font-size: 12px;
+    color: #c7254e;
+}
+#registerForm dl span.show{
+    display: block;
+}
+#registerBtn{
+    float: left;
+    display: block;
+    width: 228px;
+    height: 46px;
+    line-height: 46px;
+    text-align: center;
+    background-color: #025aa5;
+    font-size: 18px;
+    color: #fff;
+}

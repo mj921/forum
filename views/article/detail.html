@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>详情</title>
+    <%-include ../include/baseCss.html %>
+    <link rel="stylesheet" href="/stylesheets/mjDialog.css">
+    <link rel="stylesheet" href="/stylesheets/article/detail.css">
+</head>
+<body>
+    <%-include ../include/header.html %>
+    <input type="hidden" id="articleId" value="<%=article.id%>">
+    <% if(session.user){ %> 
+    <input type="hidden" id="userId" value="<%=session.user.id%>">
+    <% } %>
+    <div id="main">
+        <div id="mainLeft">
+            <div id="article">
+                <div class="header">
+                    <p><%=article.title%></p>
+                    <div class="info clear">
+                        <a href="">
+                            <img src="<%=article.headimg%>" alt="<%=article.username%>">
+                        </a><span>
+                            <a href="" class="username"><%=article.username%></a> <span>发布于 <%=article.addtime%></span><span>浏览：<%=article.pageviews%></span><span>类型：<a href="">原创</a> - <a href="">随笔</a></span><span>分类：<a href="">HTML/CSS</a></span>
+                        </span>
+                    </div>
+                </div>
+                <div id="contentInfo">
+                    <textarea id="hideArticle"><%=article.content%></textarea>
+                    <article class="content"></article>
+                </div>
+                <div id="operation">
+                    <div id="share" class="clear">
+                        <a id="sina" class="W3CfunsIcons-font" href="http://service.weibo.com/share/share.php?title=<%=article.title%>" target="_blank">
+                            <em>分享到：新浪微博</em>
+                        </a>
+                        <a id="tencent" class="W3CfunsIcons-font" href="http://share.v.t.qq.com/index.php?c=share&a=index&title=<%=article.title%>" target="_blank">
+                            <em>分享到：腾讯微博</em>
+                        </a>
+                        <a id="qq" class="W3CfunsIcons-font" href="http://connect.qq.com/widget/shareqq/index.html?url=http%3A%2F%2Fwww.qdfuns.com&title=<%=article.title%>" target="_blank">
+                            <em>分享到：QQ好友</em>
+                        </a>
+                        <a id="space" class="W3CfunsIcons-font" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http%3A%2F%2Fwww.qdfuns.com&title=<%=article.title%>" target="_blank">
+                            <em>分享到：QQ空间</em>
+                        </a>
+                    </div>
+                    <div id="likes" <% if(likeStatus==1){%>class="clear active"<%}else{%>class="clear" :class="{'active':isActive}" @click="click"<%}%>><b class="W3CfunsIcons-font">给个赞</b><span>{{likes == 0 ? likes=<%=article.likes%> :likes}}人点赞</span></div>
+                    <div id="collections" <% if(collectionStatus==1){%>class="clear active"<%}else{%>class="clear" :class="{'active':isActive}" @click="click"<%}%>><b class="W3CfunsIcons-font">收藏</b><span>{{collections == 0 ? collections=<%=article.collections%> : collections}}人收藏</span></div>
+                </div>
+                <div id="articlePage" class="clear">
+                    <% if(prevArticle.id){ %>
+                    <a class="prev" href="/article/detail.html?id=<%=prevArticle.id%>">
+                        <span>上一篇</span><%=prevArticle.title%>
+                    </a>
+                    <% } %>
+                    <% if(nextArticle.id){ %>
+                    <a class="next" href="/article/detail.html?id=<%=nextArticle.id%>">
+                        <%=nextArticle.title%><span>下一篇</span>
+                    </a>
+                    <% } %>
+                </div>
+            </div>
+            <div id="comment">
+                <div id="articleCom">
+                    <dt class="title">评论<span>已有 <b><%=article.reply || 0 %></b> 条评论；以下用户言论只代表其个人观点，不代表 前端网（QDFuns） 的观点或立场。</span></dt>
+                </div>
+                <% if(session.user){ %>
+                <div id="loginCom" class="clear">
+                    <a href="" class="headimg"><img src="<%=session.user.headimg %>" alt="<%=session.user.username %>"></a>
+                    <p><a href="" class="username"><%=session.user.username %></a><span>还可以输入<i>{{2000 - content.length}}</i>字</span></p>
+                    <textarea id="commandContent" placeholder="光标闪闪抒想法，键盘声声送评论。这，就是对作者最大的鼓励！" v-model="content"></textarea>
+                    <a href="javascript:void(0)" id="commentBtn" @click="comment">发表评论</a>
+                </div>
+                <% }else{ %>
+                <div id="noLoginCom">
+                    <p><a href="/user/login.html?redirection=/article/detail.html?id=<%=article.id %>">登录</a> 以后才能发表评论</p>
+                </div>
+                <% } %>
+            </div>
+            <% if(hotCommentList && hotCommentList.length > 0){ %>
+            <div id="hotComment">
+                <dt><span>最热<small>评论</small></span></dt>
+                <% for(var i = 0;i < hotCommentList.length;i++){ %>
+                <dl class="comment-li">
+                    <a href="" class="headimg"><img src="<%=hotCommentList[i].headimg%>" alt="<%=hotCommentList[i].username%>"></a>
+                    <h1><a href=""><%=hotCommentList[i].username%></a><%=hotCommentList[i].addtime%></h1>
+                    <p><%=hotCommentList[i].content%></p>
+                    <h2><a href="javascript:void(0)" class="support-btn" data-replyid="<%=hotCommentList[i].id%>">支持</a><i>(<%=hotCommentList[i].supports%>)</i><span><a href="javascript:void(0)" class="reply-btn" data-replyid="<%=hotCommentList[i].id%>">回复</a><i>(<%=hotCommentList[i].replys%>)</i></span></h2>
+                </dl>
+                <% } %>
+            </div>
+            <% } %>
+            <div id="newComment">
+                <dt><span>最新<small>评论</small></span></dt>
+                <div id="commentList">
+                    <dl class="comment-li"></dl>
+                </div>
+                <div id="page" class="clear">
+                    <a href="javascript:void(0)" id="firstPage">首页</a><a href="javascript:void(0)" id="prevPage">上一页</a><div id="pages" class="clear"></div><span>
+                        <input type="text" id="currentPage"> / <span id="pagesNum">9</span>页
+                    </span><a href="javascript:void(0)" id="nextPage">下一页</a><a href="javascript:void(0)" id="lastPage">尾页</a>
+                </div>
+            </div>
+        </div>
+        <div id="mainRight">
+            <div class="userInfo">
+                <img src="<%=article.headimg %>" alt="<%=article.username %>">
+                <dt><a href=""><%=article.username%></a><span>作者</span></dt>
+                <p><%=article.introduction%></p>
+            </div>
+            <div id="authorCount">
+                <dl>
+                    <i><%=authorCount.articleNum%></i>
+                    <span>总笔记数</span>
+                </dl>
+                <dl>
+                    <i><%=authorCount.replyNum%></i>
+                    <span>总阅读量</span>
+                </dl>
+            </div>
+            <div id="newArticle">
+                <dt class="title">作者最新</dt>
+                <%  if(newArticles){ %>
+                <%      for(var i = 0;i < newArticles.length;i++){ %>
+                            <dl><a href="/article/detail.html?id=<%=newArticles[i].id%>" title="<%=newArticles[i].title%>" <% if(newArticles[i].no < 3){ %>class="top"<% } %>><%=newArticles[i].title%></a></dl>
+                <%      } %>
+                <%  } %>
+            </div>
+        </div>
+        <% if(session.user){ %>
+        <div id="replyHtml">
+            <div class="reply-html">
+                <i></i>
+                <p>
+                    <a href="" class="headimg"><img src="<%=session.user.headimg %>" alt="<%=session.user.username %>"></a>
+                    <a href="" class="username"><%=session.user.username %></a>
+                    <span>还可以输入<i>{{2000 - message.length}}</i>字</span>
+                </p>
+                <textarea v-model="message" placeholder="光标闪闪抒想法，键盘声声送评论。这，就是对作者最大的鼓励！"></textarea>
+                <a href="javascript:void(0)" class="btn-canel">取消回复</a><a href="javascript:void(0)" class="btn-yes">发表评论</a>
+            </div>
+        </div>
+        <% } %>
+    </div>
+    <script type="text/javascript" src="../javascripts/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="../javascripts/mjajax.js"></script>
+    <script type="text/javascript" src="../javascripts/mjDialog.js"></script>
+    <script type="text/javascript" src="../javascripts/vue.js"></script>
+    <script type="text/javascript" src="../javascripts/article/detail.js"></script>
+</body>
+</html>

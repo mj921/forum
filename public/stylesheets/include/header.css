@@ -1,0 +1,313 @@
+#header{
+	padding: 0 20px;
+	min-width: 750px;
+	height: 50px;
+	background-color:#3e4147;
+}
+#logo{
+	float: left;
+	margin-right: 20px;
+	padding: 5px;
+	width: 140px;
+}
+#logo img{
+	width: 60px;
+}
+#logo span{
+	float: right;
+	display: block;
+	height: 39px;
+	line-height: 39px;
+	font-size: 22px;
+	color: #fff;
+}
+#nav{
+	float: left;
+	height: 50px;
+	line-height: 50px;
+}
+#nav a{
+	display: block;
+	float: left;
+	width: 58px;
+	text-align: center;
+	font-size: 14px;
+	color: #cbcbcb;
+}
+#nav a.current{
+	background-color: #333;
+	color: #6bc30d;
+}
+#user>a:hover,#nav a:hover{
+	color: #6bc30d;
+}
+#user{
+	float: right;
+}
+#search{
+	float: left;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	background-color: #42464c;
+	overflow: hidden;
+	transition: width 0.2s linear;
+	-webkit-transition: width 0.2s linear;
+}
+#search:hover{
+	width: 200px;
+	background-color: #333;
+}
+#searchBtn:before{
+	content: "\e003";
+}
+#user input{
+	float: left;
+	height: 50px;
+	width: 150px;
+	line-height: 50px;
+	background-color: transparent;
+	border: 0;
+	outline: none;
+	color: #fff;
+}
+#user dl{
+	float: left;
+	margin-left: 1px;
+	width: 50px;
+	text-align: center;
+	background-color: #42464c;
+}
+#user dl:hover{
+	background-color: #333;
+}
+#user>a,#user dl>a,#search a{
+	float: left;
+	display: block;
+	width: 44px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 14px;
+	color: #9d9d9d;
+}
+#search a{
+	width: 50px;
+}
+#user>a{
+	color: #cbcbcb;
+}
+#user dl>a{
+	width: 50px;
+}
+#user dl>img{
+	margin: 10px;
+	width: 30px;
+	height: 30px;
+}
+#user dl.headimg{
+	position: relative;
+}
+#user dl.headimg .userinfo{
+	position: absolute;
+	right: 0;
+	top: 60px;
+	display: none;
+	padding: 1px;
+	width: 300px;
+	background-color: #fff;
+	border: 1px solid #c4c4c4;
+	z-index: 999;
+}
+#user dl.headimg:hover .userinfo{
+	display: block;
+}
+#user dl.headimg .userinfo>i{
+	position: absolute;
+	top: -11px;
+	right: 10px;
+	width: 0;
+	height: 0;
+	border-bottom: 11px solid #c4c4c4;
+	border-left: 11px solid transparent;
+	border-right: 11px solid transparent;
+}
+#user dl.headimg .userinfo>i:before{
+	content: "";
+	display: block;
+	margin-top: 1px;
+	margin-left: -10px;
+	border-bottom: 10px solid #fff;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+}
+#user dl.headimg .userinfo .info{
+	padding: 40px 0 12px;
+	text-align: center;
+	background-image: url(../../images/header/banner_mini.jpg);
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+#user dl.headimg .userinfo .info img{
+	margin-bottom: 15px;
+	width: 64px;
+	height: 64px;
+	border: 3px solid rgba(255,255,255,.25);
+	border-radius: 50%;
+}
+#user dl.headimg .userinfo .info a:first-child{
+	display: block;
+}
+#user dl.headimg .userinfo .info .username{
+	display: inline-block;
+	margin-bottom: 10px;
+	height: 24px;
+	line-height: 24px;
+	font-size: 24px;
+	color: #333;
+}
+#user dl.headimg .userinfo .info .username i,#user dl.headimg .userinfo .info .username:hover i{
+	display: inline-block;
+	margin: 5px 0 5px 15px;
+	padding: 0 5px;
+	height: 14px;
+	line-height: 14px;
+	vertical-align: top;
+	background-color: #ffb400;
+	border-radius: 7px;
+	font-size: 12px;
+	color: #fff;
+}
+#user dl.headimg .userinfo .info .username:hover{
+	color: #3498db;
+}
+#user dl.headimg .userinfo .info .edit{
+	line-height: 20px;
+	text-align: center;
+	font-size: 12px;
+	color: #999;
+}
+#user dl.headimg .userinfo .progress{
+	position: relative;
+	margin: 0 auto;
+	height: 5px;
+	width: 294px;
+	background-color: #f5f5f5;
+}
+#user dl.headimg .userinfo .progress:before{
+	content: "";
+	position: absolute;
+	left: -3px;
+	width: 3px;
+	height: 5px;
+	background-color: #3498db;
+	border-radius: 3px 0 0 3px;
+}
+#user dl.headimg .userinfo .progress:after{
+	content: "";
+	position: absolute;
+	right: -3px;
+	width: 3px;
+	height: 5px;
+	background-color: #f5f5f5;
+	border-radius: 0 3px 3px 0;
+}
+#user dl.headimg .userinfo .progress div{
+    position: absolute;
+    top: -43px;
+    display: none;
+    margin-left: 91px;
+    padding: 4px 0;
+    width: 112px;
+    line-height: 15px;
+    background-color: #1a1a1a;
+    border-radius: 3px;
+    font-style: normal;
+    font-size: 12px;
+    color: #fff;
+}
+#user dl.headimg .userinfo .progress:hover div{
+	display: block;
+}
+#user dl.headimg .userinfo .progress div span{
+	display: block;
+}
+#user dl.headimg .userinfo .progress div:before{
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 38px;
+    margin-left: -5px;
+    width: 10px;
+    height: 5px;
+    background-image: url(../../images/article/tip-title.png);
+}
+#user dl.headimg .userinfo .my{
+	padding: 10px;
+	border-bottom: 1px solid #ccc;
+}
+#user dl.headimg .userinfo .my a{
+	float: left;
+	padding: 6px 0;
+	width: 70px;
+	line-height: 18px;
+	color: #666;
+	font-size: 12px;
+}
+#user dl.headimg .userinfo .my a.house:before{
+	content: "\f019";
+	display: block;
+	line-height: 32px;
+	font-size: 32px;
+}
+#user dl.headimg .userinfo .my a.manage:before{
+	content: "\e908";
+	display: block;
+	line-height: 32px;
+	font-size: 25px;
+}
+#user dl.headimg .userinfo .my a.article:before{
+	content: "\e906";
+	display: block;
+	line-height: 32px;
+	font-size: 28px;
+}
+#user dl.headimg .userinfo .my a.collection:before{
+	content: "\f007";
+	display: block;
+	line-height: 32px;
+	font-size: 30px;
+}
+#user dl.headimg .userinfo .my a:hover{
+	background-color: #3498db;
+	color: #fff;
+}
+#user dl.headimg .userinfo .set{
+	padding: 0 10px;
+	line-height: 29px;
+	text-align: left;
+	background-color: #f2f2f2;
+}
+#user dl.headimg .userinfo .set a{
+	font-size: 12px;
+	color: #333;
+}
+#user dl.headimg .userinfo .set a:first-child:before{
+	content: "\f0c9";
+	display: inline-block;
+	margin: 9px 2px 0 0;
+	vertical-align: top;
+	color: #666;
+}
+#user dl.headimg .userinfo .set a:last-child{
+	float: right;
+}
+#user dl.headimg .userinfo .set a:last-child:before{
+	content: "\e907";
+	display: inline-block;
+	margin: 9px 2px 0 0;
+	vertical-align: top;
+	color: #666;
+}
+#user dl.headimg .userinfo .set a:hover,#user dl.headimg .userinfo .set a:hover:before{
+	color: #3498db;
+}

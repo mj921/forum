@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>打笔记-笔记-后院</title>
+    <link rel="stylesheet" href="/stylesheets/base.css">
+    <link rel="stylesheet" href="/stylesheets/manage/headerMenu.css">
+    <link rel="stylesheet" href="/stylesheets/manage/article/addArticle.css">
+</head>
+<body>
+    <%-include ../myheader.html %>
+    <div id="main">
+        <div id="mainLeft" :class="{'small':isSmall}">
+            <div id="menu" :class="{'small-menu':isSmall}">
+                <%-include ../menu.html %>
+            </div>
+            <div id="back" class="W3CfunsIcons-font" :class="{'reset':isSmall}" @click="back"></div>
+        </div>
+        <div id="mainRight">
+            <div class="content-title">笔记管理</div>
+            <div class="tabs clear">
+                <a href="/manage/article/myArticles.html">我的笔记</a>
+                <a href="#">笔记分类</a>
+                <a href="#">草稿箱</a>
+                <a href="/manage/article/addArticle.html" class="current">打笔记</a>
+            </div>
+            <form id="editor">
+                <input type="hidden" id="userid" value="<%=session.user.id%>">
+                <dt>
+                    <div class="editor-title">
+                        <div class="type-select"><span>原创</span><span class="select-icon"></span></div>
+                        <input type="text" name="title" v-model="title" placeholder="好笔记配好标题，就如好马配好鞍">
+                    </div>
+                    <div id="toolbar">
+                        <div class="font-size-select" title="设置字体大小">
+                            <span>14</span><span class="select-icon"></span>
+                        </div>
+                        <div class="font-color-select">
+                            <span class="editor-icon"></span>
+                            <em :style="styleStr"></em>
+                            <span class="select-icon"></span>
+                            <div class="colors clear">
+                                <a href="javascript:void(0)" style="background-color:#ffffff;" @click="color('#ffffff')"></a>
+                                <a href="javascript:void(0)" style="background-color:#000000;" @click="color('#000000')"></a>
+                                <a href="javascript:void(0)" style="background-color:#eeece1;" @click="color('#eeece1')"></a>
+                                <a href="javascript:void(0)" style="background-color:#1f497d;" @click="color('#1f497d')"></a>
+                                <a href="javascript:void(0)" style="background-color:#4f81bd;" @click="color('#4f81bd')"></a>
+                                <a href="javascript:void(0)" style="background-color:#c0504d;" @click="color('#c0504d')"></a>
+                                <a href="javascript:void(0)" style="background-color:#9bbb59;" @click="color('#9bbb59')"></a>
+                                <a href="javascript:void(0)" style="background-color:#8064a2;" @click="color('#8064a2')"></a>
+                                <a href="javascript:void(0)" style="background-color:#4bacc6;" @click="color('#4bacc6')"></a>
+                                <a href="javascript:void(0)" style="background-color:#f79646;" @click="color('#f79646')"></a>
+                                <a href="javascript:void(0)" style="background-color:#f2f2f2;" @click="color('#f2f2f2')"></a>
+                                <a href="javascript:void(0)" style="background-color:#7f7f7f;" @click="color('#7f7f7f')"></a>
+                                <a href="javascript:void(0)" style="background-color:#ddd9c3;" @click="color('#ddd9c3')"></a>
+                                <a href="javascript:void(0)" style="background-color:#c6d9f0;" @click="color('#c6d9f0')"></a>
+                                <a href="javascript:void(0)" style="background-color:#dbe5f1;" @click="color('#dbe5f1')"></a>
+                                <a href="javascript:void(0)" style="background-color:#f2dcdb;" @click="color('#f2dcdb')"></a>
+                                <a href="javascript:void(0)" style="background-color:#ebf1dd;" @click="color('#ebf1dd')"></a>
+                                <a href="javascript:void(0)" style="background-color:#e5e0ec;" @click="color('#e5e0ec')"></a>
+                                <a href="javascript:void(0)" style="background-color:#dbeef3;" @click="color('#dbeef3')"></a>
+                                <a href="javascript:void(0)" style="background-color:#fdeada;" @click="color('#fdeada')"></a>
+                                <a href="javascript:void(0)" style="background-color:#d8d8d8;" @click="color('#d8d8d8')"></a>
+                                <a href="javascript:void(0)" style="background-color:#595959;" @click="color('#595959')"></a>
+                                <a href="javascript:void(0)" style="background-color:#c4bd97;" @click="color('#c4bd97')"></a>
+                                <a href="javascript:void(0)" style="background-color:#8db3e2;" @click="color('#8db3e2')"></a>
+                                <a href="javascript:void(0)" style="background-color:#b8cce4;" @click="color('#b8cce4')"></a>
+                                <a href="javascript:void(0)" style="background-color:#e5b9b7;" @click="color('#e5b9b7')"></a>
+                                <a href="javascript:void(0)" style="background-color:#d7e3bc;" @click="color('#d7e3bc')"></a>
+                                <a href="javascript:void(0)" style="background-color:#ccc1d9;" @click="color('#ccc1d9')"></a>
+                                <a href="javascript:void(0)" style="background-color:#b7dde8;" @click="color('#b7dde8')"></a>
+                                <a href="javascript:void(0)" style="background-color:#fbd5b5;" @click="color('#fbd5b5')"></a>
+                                <a href="javascript:void(0)" style="background-color:#bfbfbf;" @click="color('#bfbfbf')"></a>
+                                <a href="javascript:void(0)" style="background-color:#3f3f3f;" @click="color('#3f3f3f')"></a>
+                                <a href="javascript:void(0)" style="background-color:#938953;" @click="color('#938953')"></a>
+                                <a href="javascript:void(0)" style="background-color:#548dd4;" @click="color('#548dd4')"></a>
+                                <a href="javascript:void(0)" style="background-color:#95b3d7;" @click="color('#95b3d7')"></a>
+                                <a href="javascript:void(0)" style="background-color:#d99694;" @click="color('#d99694')"></a>
+                                <a href="javascript:void(0)" style="background-color:#c3d69b;" @click="color('#c3d69b')"></a>
+                                <a href="javascript:void(0)" style="background-color:#b2a2c7;" @click="color('#b2a2c7')"></a>
+                                <a href="javascript:void(0)" style="background-color:#92cddc;" @click="color('#92cddc')"></a>
+                                <a href="javascript:void(0)" style="background-color:#fac08f;" @click="color('#fac08f')"></a>
+                                <a href="javascript:void(0)" style="background-color:#a5a5a5;" @click="color('#a5a5a5')"></a>
+                                <a href="javascript:void(0)" style="background-color:#262626;" @click="color('#262626')"></a>
+                                <a href="javascript:void(0)" style="background-color:#494429;" @click="color('#494429')"></a>
+                                <a href="javascript:void(0)" style="background-color:#17365d;" @click="color('#17365d')"></a>
+                                <a href="javascript:void(0)" style="background-color:#366092;" @click="color('#366092')"></a>
+                                <a href="javascript:void(0)" style="background-color:#953734;" @click="color('#953734')"></a>
+                                <a href="javascript:void(0)" style="background-color:#76923c;" @click="color('#76923c')"></a>
+                                <a href="javascript:void(0)" style="background-color:#5f497a;" @click="color('#5f497a')"></a>
+                                <a href="javascript:void(0)" style="background-color:#31859b;" @click="color('#31859b')"></a>
+                                <a href="javascript:void(0)" style="background-color:#e36c09;" @click="color('#e36c09')"></a>
+                                <a href="javascript:void(0)" style="background-color:#7f7f7f;" @click="color('#7f7f7f')"></a>
+                                <a href="javascript:void(0)" style="background-color:#0c0c0c;" @click="color('#0c0c0c')"></a>
+                                <a href="javascript:void(0)" style="background-color:#1d1b10;" @click="color('#1d1b10')"></a>
+                                <a href="javascript:void(0)" style="background-color:#0f243e;" @click="color('#0f243e')"></a>
+                                <a href="javascript:void(0)" style="background-color:#244061;" @click="color('#244061')"></a>
+                                <a href="javascript:void(0)" style="background-color:#632423;" @click="color('#632423')"></a>
+                                <a href="javascript:void(0)" style="background-color:#4f6128;" @click="color('#4f6128')"></a>
+                                <a href="javascript:void(0)" style="background-color:#3f3151;" @click="color('#3f3151')"></a>
+                                <a href="javascript:void(0)" style="background-color:#205867;" @click="color('#205867')"></a>
+                                <a href="javascript:void(0)" style="background-color:#974806;" @click="color('#974806')"></a>
+                                <a href="javascript:void(0)" style="background-color:#c00000;" @click="color('#c00000')"></a>
+                                <a href="javascript:void(0)" style="background-color:#ff0000;" @click="color('#ff0000')"></a>
+                                <a href="javascript:void(0)" style="background-color:#ffc000;" @click="color('#ffc000')"></a>
+                                <a href="javascript:void(0)" style="background-color:#ffff00;" @click="color('#ffff00')"></a>
+                                <a href="javascript:void(0)" style="background-color:#92d050;" @click="color('#92d050')"></a>
+                                <a href="javascript:void(0)" style="background-color:#00b050;" @click="color('#00b050')"></a>
+                                <a href="javascript:void(0)" style="background-color:#00b0f0;" @click="color('#00b0f0')"></a>
+                                <a href="javascript:void(0)" style="background-color:#0070c0;" @click="color('#0070c0')"></a>
+                                <a href="javascript:void(0)" style="background-color:#002060;" @click="color('#205867')"></a>
+                                <a href="javascript:void(0)" style="background-color:#7030a0;" @click="color('#7030a0')"></a>
+                            </div>
+                        </div>
+                        <div class="font-bold" unselectable="on" @click="bold">
+                            <span class="editor-icon" unselectable="on"></span>
+                        </div>
+                        <div class="add-url">
+                            <span class="editor-icon"></span>
+                        </div>
+                        <div class="remove-url">
+                            <span class="editor-icon"></span>
+                        </div>
+                        <i class="split"></i>
+                        <div class="text-left">
+                            <span class="editor-icon" @click="textLeft"></span>
+                        </div>
+                        <div class="text-center">
+                            <span class="editor-icon" @click="textCenter"></span>
+                        </div>
+                        <div class="text-right">
+                            <span class="editor-icon" @click="textRight"></span>
+                        </div>
+                        <div class="o-list">
+                            <span class="editor-icon"></span>
+                        </div>
+                        <div class="u-list">
+                            <span class="editor-icon"></span>
+                        </div>
+                        <div class="paragraph">
+                            <span class="editor-icon" @click="paragraph"></span>
+                        </div>
+                        <i class="split"></i>
+                    </div>
+                </dt>
+                <div id="editorMain">
+                    <textarea id="editorContent"  v-model="content" placeholder="笔记内容格式工整且至少50字；请勿发布任何广告形式的软文、招聘、链接及等宣传内容；"></textarea>
+                    <div class="status-bar">
+                        <a href="javascript:void(0)">字数检查</a>
+                    </div>
+                    <div class="radio-div">
+                        <dl>
+                            <div class="radio-title">笔记类型</div>
+                            <div class="radios clear">
+                                <% for(var i = 0;i < types.length;i++){ %>
+                                    <label for="tr<%= i + 1 %>" :class="{'current':tid==<%=types[i].id%>}"><i></i><%=types[i].name%></label><input type="radio" id="tr<%= i + 1 %>" name="typeid" v-model="tid" value="<%=types[i].id%>">
+                                 <% } %>
+                            </div>
+                        </dl>
+                        <dl>
+                            <div class="radio-title">系统分类</div>
+                            <div class="radios clear">
+                                <% for(var i = 0;i < classifications.length;i++){ %>
+                                    <label for="cr<%= i + 1 %>" :class="{'current':cid==<%=classifications[i].id%>}"><i></i><%=classifications[i].name %></label><input type="radio" id="cr<%= i + 1 %>" name="classificationid" v-model="cid" value="<%=classifications[i].id%>">
+                                <% } %>
+                            </div>
+                        </dl>
+                        <!-- <dl>
+                            <div class="radio-title">个人分类</div>
+                        </dl>
+                        <dl>
+                            <div class="radio-title">笔记标签</div>
+                        </dl>
+                        <dl>
+                            <div class="radio-title">版权声明</div>
+                        </dl> -->
+                    </div>
+                    <div class="btn-bg">
+                        <a href="javascript:void(0)" class="finish" @click="submit">我写完了，发表！</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="/javascripts/vue.js"></script>
+    <script type="text/javascript" src="/javascripts/mjajax.js"></script>
+    <script type="text/javascript" src="/javascripts/manage/headerMenu.js"></script>
+    <script type="text/javascript" src="/javascripts/manage/article/addArticle.js"></script>
+</body>
+</html>
